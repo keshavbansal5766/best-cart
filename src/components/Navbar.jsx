@@ -45,9 +45,34 @@ const Navbar = () => {
           </button>
         </div>
 
-        <button className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-full">
-          Login
-        </button>
+        {!user ? (
+          <button
+            onClick={() => {
+              setShowUserLogin(true);
+            }}
+            className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-full"
+          >
+            Login
+          </button>
+        ) : (
+          <div className="relative group">
+            <img src={assets.profile_icon} className="w-10" alt="" />
+            <ul className="absolute top-10 right-0 hidden group-hover:block bg-white shadow border border-gray-300 w-30 py-2.5 rounded-md text-sm z-40">
+              <li
+                className="p-1.5 pl-5 hover:bg-primary/10 cursor-pointer"
+                onClick={() => navigate("my-orders")}
+              >
+                My Orders
+              </li>
+              <li
+                onClick={logout}
+                className="p-1.5 pl-5 hover:bg-primary/10 cursor-pointer"
+              >
+                Logout
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
 
       <button

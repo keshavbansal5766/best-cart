@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
-      <NavLink to="/">
+      <NavLink to="/" onClick={() => setOpen(false)}>
         <img src={assets.logo} alt="logo" />
       </NavLink>
 
@@ -34,7 +34,10 @@ const Navbar = () => {
           <img src={assets.search_icon} alt="search" className="w-4 h-4" />
         </div>
 
-        <div className="relative cursor-pointer">
+        <div
+          onClick={() => navigate("/cart")}
+          className="relative cursor-pointer"
+        >
           <img
             src={assets.nav_cart_icon}
             alt="cart"
@@ -60,7 +63,7 @@ const Navbar = () => {
             <ul className="absolute top-10 right-0 hidden group-hover:block bg-white shadow border border-gray-300 w-30 py-2.5 rounded-md text-sm z-40">
               <li
                 className="p-1.5 pl-5 hover:bg-primary/10 cursor-pointer"
-                onClick={() => navigate("my-orders")}
+                onClick={() => navigate("/my-orders")}
               >
                 My Orders
               </li>

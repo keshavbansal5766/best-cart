@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Footer from "./components/Footer";
+import Login from "./components/Login";
 import { useAppContext } from "./context/AppContext";
 const App = () => {
   const { showUserLogin } = useAppContext();
@@ -19,6 +20,7 @@ const App = () => {
         </Routes>
       </div>
       {!isSellerPath && <Footer />}
+      {showUserLogin ? <Login /> : null}
     </div>
   );
 };

@@ -74,7 +74,7 @@ export const AppContextProvider = ({ children }) => {
     removeFromCart,
     cartItems,
     searchQuery,
-    setSearchQuery,
+    setSearchQuery
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

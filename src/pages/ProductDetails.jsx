@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
-import { assets, categories } from "../assets/assets";
+import { assets } from "../assets/assets";
 import ProductCard from "../components/ProductCard";
 
 const ProductDetails = () => {
@@ -72,7 +72,7 @@ const ProductDetails = () => {
                   <img
                     key={i}
                     src={i < 4 ? assets.star_icon : assets.star_dull_icon}
-                    className="MD:W-4 W-3.5"
+                    className="md:w-4 w-3.5"
                   />
                 ))}
               <p className="text-base ml-2">(4)</p>

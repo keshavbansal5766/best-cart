@@ -38,6 +38,8 @@ const AddAddress = () => {
       ...prevAddress,
       [name]: value,
     }));
+
+   console.log(address);
   };
 
   return (

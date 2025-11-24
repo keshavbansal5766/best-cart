@@ -41,10 +41,10 @@ export const register = async (req, res) => {
 
 // Login User: /api/user/login
 
-export const Login = async () => {
+export const Login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    if ((!email, !password)) {
+    if (!email || !password) {
       res.json({ success: false, message: "Email and password are incorrect" });
     }
 

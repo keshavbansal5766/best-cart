@@ -1,0 +1,6 @@
+server/.env
+client/.env
+
+# Extra recommended ignores
+node_modules/
+*.log

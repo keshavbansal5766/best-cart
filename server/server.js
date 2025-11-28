@@ -7,6 +7,7 @@ import userRouter from "./routes/userRouter.js";
 import sellerRouter from "./routes/sellerRoute.js";
 import connectCloudinary from "./configs/cloudinary.js";
 import productRouter from "./routes/productRouter.js";
+import cartRouter from "./routes/cartRouter.js";
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -29,6 +30,7 @@ app.get("/", (req, res) => {
 app.use("/api/user", userRouter);
 app.use("/api/seller", sellerRouter);
 app.use("/api/product", productRouter);
+app.use("/api/cart/update", cartRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

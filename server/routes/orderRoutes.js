@@ -1,0 +1,15 @@
+import express from "express";
+import authUser from "../middlewares/authUser";
+import {
+  allOrders,
+  getUserOrders,
+  placeOrderCod,
+} from "../controllers/orderController";
+
+const orderRouter = express.Router();
+
+orderRouter.post("/cod", authUser, placeOrderCod);
+orderRouter.post("/user", authUser, getUserOrders);
+orderRouter.post("/seller", authUser, allOrders);
+
+export default orderRouter;

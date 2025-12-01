@@ -3,12 +3,12 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./configs/db.js";
 import "dotenv/config";
-import userRouter from "./routes/userRouter.js";
+import userRouter from "./routes/userRoute.js";
 import sellerRouter from "./routes/sellerRoute.js";
 import connectCloudinary from "./configs/cloudinary.js";
-import productRouter from "./routes/productRouter.js";
-import cartRouter from "./routes/cartRouter.js";
-import addressRouter from "./routes/addressRouter.js";
+import productRouter from "./routes/productRoute.js";
+import cartRouter from "./routes/cartRoute.js";
+import addressRouter from "./routes/addressRoute.js";
 import orderRouter from "./routes/orderRoutes.js";
 
 const app = express();

@@ -2,7 +2,7 @@ import Order from "../models/Order.js";
 import Product from "../models/Product.js";
 
 // Place order COD: /api/order/cod
-const placeOrderCod = async (req, res) => {
+export const placeOrderCod = async (req, res) => {
   try {
     const { userId, items, address } = req.body;
 
@@ -27,6 +27,25 @@ const placeOrderCod = async (req, res) => {
     });
 
     return res.json({ success: true, message: "Order Placed Successfully" });
+  } catch (error) {
+    console.log(error.message);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+// GEt Orders by User ID: /api/order/user
+export const getUserOrders = async (req, res) => {
+  try {
+    const { userId } = req.body;
+
+    const orders = await Order.find({
+      userId,
+      $or: [{ paymentType: "COD" }, { isPaid: true }],
+    })
+      .populate("items.product address")
+      .sort({ createdAt: -1 });
+
+    res.json({ success: true, orders });
   } catch (error) {
     console.log(error.message);
     res.json({ success: false, message: error.message });

@@ -1,8 +1,10 @@
-const authSeller = () => {
+import jwt from 'jsonwebtoken'
+
+const authSeller = (req, res, next) => {
   const { sellerToken } = req.cookies;
 
   if (!sellerToken)
-    return resizeBy.json({ success: false, message: "Not Authorized" });
+    return res.json({ success: false, message: "Not Authorized" });
 
   try {
     const tokenDecode = jwt.verify(sellerToken, process.env.JWT_SECRET);

@@ -136,7 +136,6 @@ export const AppContextProvider = ({ children }) => {
           // userId: user._id,
           cartItems,
         });
-        console.log(data);
         if (!data.success) {
           toast.error(data.message);
         }

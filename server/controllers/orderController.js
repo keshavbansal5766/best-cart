@@ -53,7 +53,7 @@ export const getUserOrders = async (req, res) => {
 };
 
 // Get All Orders: api/order/seller
-export const allOrders = async () => {
+export const allOrders = async (req, res) => {
   try {
     const orders = await Order.find({
       $or: [{ paymentType: "COD" }, { isPaid: true }],

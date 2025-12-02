@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import { dummyOrders } from "../assets/assets";
+import toast from "react-hot-toast";
 
 const MyOrders = () => {
   const [myOrders, setMyOrders] = useState([]);
@@ -11,9 +12,11 @@ const MyOrders = () => {
       const { data } = await axios.get("/api/order/user");
       if (data.success) {
         setMyOrders(data.orders);
+      } else {
+        toast.error(data.message)
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error.message)
     }
   };
 

@@ -10,6 +10,6 @@ const orderRouter = express.Router();
 
 orderRouter.post("/cod", authUser, placeOrderCod);
 orderRouter.get("/user", authUser, getUserOrders);
-orderRouter.post("/seller", authUser, allOrders);
+orderRouter.get("/seller", authUser, allOrders);
 
 export default orderRouter;

@@ -46,9 +46,14 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <div className="hidden sm:flex items-center gap-8">
+        <NavLink
+          to="/seller"
+          className="border border-gray-300 px-3 py-1 rounded-full text-xs cursor-pointer opacity-80"
+        >
+          Seller Dashboard
+        </NavLink>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/products">All Product</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
 
         <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
           <input
@@ -134,6 +139,13 @@ const Navbar = () => {
             open ? "flex" : "hidden"
           } absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm sm:hidden z-40`}
         >
+          <NavLink
+            to="/seller"
+            onClick={() => setOpen(false)}
+            className="block"
+          >
+            Seller Dashboard
+          </NavLink>
           <NavLink to="/" onClick={() => setOpen(false)} className="block">
             Home
           </NavLink>
@@ -153,13 +165,13 @@ const Navbar = () => {
               My Orders
             </NavLink>
           )}
-          <NavLink
+          {/* <NavLink
             to="/contact"
             onClick={() => setOpen(false)}
             className="block"
           >
             Contact
-          </NavLink>
+          </NavLink> */}
 
           {!user ? (
             <button
